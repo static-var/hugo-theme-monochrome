@@ -45,12 +45,21 @@ html[data-theme="dark"] {
   --color-text-mark: #{$gray-900};
   --color-border: #{$gray-500};
   --color-border-collapsible-menu: #{$gray-550};
+<<<<<<< HEAD
   --color-background: #{$gray-750};
   --color-background-hover: #{$gray-600};
   --color-background-overlay: #{$gray-700};
   --color-background-inline-code: #{$gray-600};
   --color-background-card: #{$gray-700};
   --color-background-mark: #ffd70e;
+=======
+  --color-background: #{$gray-900};
+  --color-background-hover: #{$gray-800};
+  --color-background-overlay: #{$gray-850};
+  --color-background-inline-code: #{$gray-900};
+  --color-background-card: #{$gray-850};
+  --color-background-mark: #fff1a7;
+>>>>>>> 639d50f (theme: Update with footer, a more darker theme, add simple analytics)
   --color-link: #93c5fd;
   --color-navbar-item-inactive: #{$gray-400};
   --color-navbar-item-active: #{$gray-100};

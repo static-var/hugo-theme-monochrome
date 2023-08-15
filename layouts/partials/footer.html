@@ -1,3 +1,18 @@
+<ul class="social__list">
+    {{ range $item := .Site.Params.socialIcons }}
+    <li class="social__list-item">
+        <a
+                href="{{ $item.url }}"
+                target="_blank"
+                rel="noopener me"
+                aria-label="{{ $item.title }}"
+                title="{{ $item.title }}"
+        >
+            <i class="{{ $item.icon }} fa-2x" aria-hidden="true"></i>
+        </a>
+    </li>
+    {{ end }}
+</ul>
 {{ with (.Scratch.Get "params").footer }}
 <footer>
     <article>

@@ -1,0 +1,25 @@
+.social {
+  margin-top: 40px;
+  color: var(--color-text);
+
+  &__list {
+    list-style: none;
+    padding: 0;
+
+    text-align: center;
+
+    &-item {
+      display: inline;
+      padding: 0 4px;
+      line-height: 0;
+    }
+    a {
+      color: var(--color-text);
+
+      &:hover {
+        color: var(--color-text-secondary);
+      }
+    }
+  }
+
+}

@@ -2,14 +2,6 @@ article {
   line-height: 1.7;
   width: 100%;
 
-  > *:first-child {
-    margin-top: 0;
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
   hr {
     @include my-8;
   }
@@ -73,6 +65,8 @@ article {
     border-radius: .25rem;
     padding: .2rem .375rem .2rem .375rem;
     background-color: var(--color-background-inline-code);
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 
   pre {
@@ -88,6 +82,8 @@ article {
       border-radius: 0;
       padding: 0;
       background-color: transparent;
+      white-space: unset;
+      word-wrap: unset;
     }
   }
 
@@ -134,6 +130,8 @@ article {
           border-radius: 0;
           padding: 0;
           background-color: transparent;
+          white-space: unset;
+          word-wrap: unset;
         }
       }
     }
@@ -193,6 +191,10 @@ article {
 
   .header-anchor-wrapper:hover .header-anchor-link {
     display: inline;
+  }
+
+  section {
+    @include my-4;
   }
 }
 

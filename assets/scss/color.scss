@@ -24,18 +24,21 @@ html[data-theme="light"] {
   --color-text-secondary: #{$gray-500};
   --color-text-footer: #{$gray-500};
   --color-text-mark: #{$gray-900};
+  --color-text-active: #{$gray-0};
+  --color-text-disabled: #{$gray-400};
   --color-border: #{$gray-300};
   --color-border-collapsible-menu: #{$gray-200};
   --color-background: #{$gray-0};
-  --color-background-hover: #{$gray-50};
+  --color-background-active: #{$gray-600};
+  --color-background-hover: #{$gray-100};
   --color-background-overlay: #{$gray-150};
   --color-background-inline-code: #{$gray-100};
   --color-background-card: #{$gray-0};
   --color-background-mark: #ffd70e;
   --color-link: #2563eb;
-  --color-navbar-item-inactive: #{$gray-400};
-  --color-navbar-item-active: #{$gray-900};
-  --color-navbar-item-in-section: #{$gray-600};
+  --color-header-menu-item-inactive: #{$gray-500};
+  --color-header-menu-item-active: #{$gray-1000};
+  --color-header-menu-item-in-section: #{$gray-600};
 }
 
 html[data-theme="dark"] {
@@ -43,18 +46,21 @@ html[data-theme="dark"] {
   --color-text-secondary: #{$gray-450};
   --color-text-footer: #{$gray-400};
   --color-text-mark: #{$gray-900};
+  --color-text-active: #{$gray-1000};
+  --color-text-disabled: #{$gray-500};
   --color-border: #{$gray-500};
   --color-border-collapsible-menu: #{$gray-550};
   --color-background: #{$gray-900};
+  --color-background-active: #{$gray-200};
   --color-background-hover: #{$gray-800};
   --color-background-overlay: #{$gray-850};
   --color-background-inline-code: #{$gray-800};
   --color-background-card: #{$gray-850};
   --color-background-mark: #fff1a7;
   --color-link: #93c5fd;
-  --color-navbar-item-inactive: #{$gray-400};
-  --color-navbar-item-active: #{$gray-100};
-  --color-navbar-item-in-section: #{$gray-250};
+  --color-header-menu-item-inactive: #{$gray-400};
+  --color-header-menu-item-active: #{$gray-100};
+  --color-header-menu-item-in-section: #{$gray-250};
 }
 
 // Default color settings
@@ -62,7 +68,6 @@ html[data-theme="dark"] {
 html {
   color: var(--color-text);
   background: var(--color-background);
-  font-size: 16px;
 }
 
 a {

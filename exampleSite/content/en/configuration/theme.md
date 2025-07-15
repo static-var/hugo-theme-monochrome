@@ -37,6 +37,15 @@ TOC global settings.
 enable_toc = true # default: true
 ```
 
+### Table of Contents Position
+
+TOC position global setting.
+
+```toml
+[params]
+toc_position = "right" # "top" | "right", default: "top"
+```
+
 ## Collapsible Menu
 
 Collapsible global settings.
@@ -48,7 +57,7 @@ enable_collapsible_changelogs = false # default: false
 ```
 ## Navbar menu
 
-Monochrome uses built-in menu system supported by hugo itself. (Checkout [document](https://gohugo.io/content-management/menus) for more deatil.) By default, the menu called `navbar` is used to decide which item need to be rendered on the navbar.
+Monochrome uses built-in menu system supported by hugo itself. (Checkout [document](https://gohugo.io/content-management/menus) for more details.) By default, the menu called `navbar` is used to decide which item need to be rendered on the navbar.
 
 So you can simply add the following code to your page front-matter, and the menu info will be handled by hugo out of the box. ([simple method mentioned in document](https://gohugo.io/content-management/menus#simple))
 
@@ -114,6 +123,15 @@ menu:
     weight: 80
 ```
 
+### Hide Navbar on Scroll
+
+Hide navbar on scroll
+
+```toml
+[params]
+hide_navbar_on_scroll = true # true | false, default: true
+```
+
 ## List Layout
 
 ```toml
@@ -159,7 +177,7 @@ enable_zooming_js = false # default: true
 
 ### Site Search
 
-Add the following settings to config.toml:
+Add the following settings to hugo.toml:
 
 ```toml
 [outputs]
@@ -226,9 +244,9 @@ A flag to render open graph internal template. See [Open Graph](https://gohugo.i
 enable_open_graph = false # default: true
 ```
 
-### Twitter Cards
+### X (Twitter) Cards
 
-A flag to render open twitter cards template. See [Twitter Cards](https://gohugo.io/templates/internal#twitter-cards) for additional settings.
+A flag to render open X (twitter) cards template. See [X (Twitter) Cards](https://gohugo.io/templates/embedded/#x-twitter-cards) for additional settings.
 
 ```toml
 [params]
@@ -252,6 +270,12 @@ color_scheme = "dark" # "light" or "dark"
 
 ## Custom head
 
-You can insert your custom code in `<head>` section using the `/layouts/partials/user_head.html` file.
+You can insert your custom code in `<head>` section using the `/layouts/_partials/user_head.html` file.
 
 This is useful for inject third-partiy libraries (e.g. Google Ads) or your custom script. 
+
+## Custom template at the end of page
+
+To insert custom content at the end of each page, create the file at: `/layouts/_partials/user_content_end.html`.
+
+This is useful for injecting custom components, such as a comment service.

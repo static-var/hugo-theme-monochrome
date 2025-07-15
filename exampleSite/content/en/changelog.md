@@ -5,6 +5,57 @@ toc: false
 
 # Changelog
 
+## v5.1.0 (2025/07/08)
+
+- Fixed
+  - User partial templates not rendering due to changes in Hugo’s template structure
+  - MathJax formulas not rendering properly when loaded with defer
+  - Balloon header content misaligned in mobile view
+  - Post count in terms-cloud wrapping incorrectly due to overflow
+- Changed
+  - Renamed config.toml to hugo.toml
+  - Display all index content on paginated list pages
+  - Expanded renderable area for sidebar components
+  - Minor style adjustments
+- New
+  - `width` and `height` parameters in icon shortcode
+  - `gap` parameter in icon-group shortcode
+  - Redesigned paginator
+  - Lazy-load index.json upon search button click
+  - Fixed TOC scroll tracking
+
+---
+
+## v5.0.0 (2025/07/06)
+
+- Fixed
+  - Internal templates and theme structure breaking changes introduced in hugo 0.146.0 ([#68](https://github.com/kaiiiz/hugo-theme-monochrome/issues/68))
+  - Fixed issue where inline code width could overflow the page body
+- Changed
+  - **BREAKING CHANGE** The minimum hugo version requirement is now `0.146.0`.
+  - The font size now respects browser settings for improved accessibility. ([#57](https://github.com/kaiiiz/hugo-theme-monochrome/issues/66))
+  - Redesigned navbar with compact and wide layout
+  - Minor style adjustments
+- New
+  - Added support for positioning the table of contents (TOC) on the right (see `toc_position` settings for details) ([#51](https://github.com/kaiiiz/hugo-theme-monochrome/issues/51))
+  - Added support for auto-hiding the navbar on scroll (see `hide_navbar_on_scroll` settings for details)
+
+---
+
+## v4.0.0 (2024/11/27)
+
+- Fixed
+  - Terms cloud overflow bug ([#57](https://github.com/kaiiiz/hugo-theme-monochrome/issues/57))
+  - Mathjax white pixels on top and bottom left of page ([#56](https://github.com/kaiiiz/hugo-theme-monochrome/issues/56))  
+  - Change resource fingerprint from sha512 to sha256 to prevent file name too long issue during build
+- Changed
+  - **BREAKING CHANGE** The minimum hugo version requirement is now `0.128.0`. [Adjust your config's `paginate` to `pagination.pagerSize` accordingly](https://github.com/gohugoio/hugo/releases/tag/v0.128.0) ([#58](https://github.com/kaiiiz/hugo-theme-monochrome/pull/58), [#59](https://github.com/kaiiiz/hugo-theme-monochrome/pull/59), [#60](https://github.com/kaiiiz/hugo-theme-monochrome/issues/60))
+- New
+  - Add Russian translation ([#52](https://github.com/kaiiiz/hugo-theme-monochrome/pull/52))
+  - Add French (France) translation ([#54](https://github.com/kaiiiz/hugo-theme-monochrome/pull/54))
+
+---
+
 ## v3.1.0 (2024/05/26)
 
 - Fixed

@@ -1,0 +1,420 @@
+/* Code block & syntax highlighting - SIMPLIFIED APPROACH */
+
+/* Base code block styling */
+.highlight,
+pre[class*="language-"],
+article pre {
+  background: var(--color-background-code-block) !important;
+  border: 1px solid var(--color-border);
+  border-radius: .625rem;
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Regular code blocks without line numbers */
+pre:not(.line-numbers),
+.highlight pre:not(.line-numbers),
+pre[class*="language-"]:not(.line-numbers) {
+  padding: 1rem !important;
+}
+
+pre:not(.line-numbers) code,
+.highlight pre:not(.line-numbers) code,
+pre[class*="language-"]:not(.line-numbers) code {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Inline code styling */
+article code:not([class*="language-"]) { 
+  color: var(--color-text);
+  background-color: var(--color-background-inline-code);
+  padding: .2rem .375rem;
+  border-radius: .25rem;
+}
+
+/* Syntax highlighting tokens */
+/* Prism tokens */
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--color-text-secondary); }
+.token.punctuation { color: var(--color-text-secondary); }
+.token.property, .token.tag, .token.boolean, .token.constant, .token.symbol, .token.deleted { color: var(--color-code-keyword); }
+.token.number { color: var(--color-code-number); }
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: var(--sv-positive); }
+.token.operator, .token.entity, .token.url { color: var(--color-text); }
+.token.atrule, .token.attr-value, .token.keyword { color: var(--color-code-keyword); }
+.token.function, .token.class-name { color: var(--color-code-keyword); }
+.token.regex, .token.important, .token.variable { color: var(--sv-negative); }
+.token.important, .token.bold { font-weight: 600; }
+.token.italic { font-style: italic; }
+
+/* Chroma tokens */
+.chroma { background: var(--color-background-code-block) !important; color: var(--color-text); }
+.chroma .c, .chroma .cp, .chroma .c1, .chroma .cs { color: var(--color-text-secondary); }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt { color: var(--color-code-keyword); }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .ss, .chroma .s1 { color: var(--sv-positive); }
+.chroma .mi, .chroma .mf, .chroma .il, .chroma .mo { color: var(--color-code-number); }
+.chroma .nb, .chroma .bp { color: var(--color-code-keyword); }
+.chroma .na, .chroma .nc, .chroma .nd, .chroma .ne, .chroma .nf, .chroma .nx { color: var(--color-code-keyword); }
+.chroma .nt { color: var(--color-code-keyword); }
+.chroma .gi { color: var(--sv-positive); }
+.chroma .gd { color: var(--sv-negative); }
+.chroma .err { color: var(--sv-negative); text-decoration: underline; }
+
+/* Global overrides to prevent conflicts */
+code[class*="language-"], pre[class*="language-"] { text-shadow: none; }
+:root { --code-gutter-width: 3.25rem; }
+
+/* Hugo Chroma - Table-based line number layout */
+.highlight table,
+.chroma table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.highlight td,
+.chroma td {
+  padding: 0;
+  border: none;
+  vertical-align: top;
+}
+
+/* Line number column - first td */
+.highlight td:first-child,
+.chroma td:first-child {
+  background: var(--color-code-gutter-bg);
+  border-right: 1px solid var(--color-code-gutter-border);
+  width: var(--code-gutter-width);
+  min-width: var(--code-gutter-width);
+  border-top-left-radius: .625rem;
+  border-bottom-left-radius: .625rem;
+  text-align: right;
+  padding: 1rem 0.75rem 1rem 0;
+  user-select: none;
+  vertical-align: top;
+}
+
+/* Ensure both line numbers and code have matching line heights and alignment */
+.highlight td:first-child pre,
+.highlight td:last-child pre,
+.chroma td:first-child pre,
+.chroma td:last-child pre {
+  line-height: 1.5 !important;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  font-size: 0.875rem !important; /* Ensure consistent font size */
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'Ubuntu Mono', monospace !important;
+}
+
+/* Apply the same font to all code elements */
+.highlight pre,
+.highlight code,
+.chroma pre,
+.chroma code,
+pre[class*="language-"],
+code[class*="language-"] {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'Ubuntu Mono', monospace !important;
+}
+
+/* Force both table cells to have identical positioning */
+.highlight td:first-child,
+.highlight td:last-child,
+.chroma td:first-child,
+.chroma td:last-child {
+  position: relative;
+  vertical-align: baseline !important; /* Use baseline instead of top */
+}
+
+/* Code content column - second td */
+.highlight td:last-child,
+.chroma td:last-child {
+  border-top-right-radius: .625rem;
+  border-bottom-right-radius: .625rem;
+  padding: 1rem;
+  width: 100%;
+  vertical-align: top;
+  position: relative;
+}
+
+/* Fix pre elements inside table cells */
+.highlight td pre,
+.chroma td pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  line-height: 1.5;
+}
+
+/* Fix code elements inside table cells */
+.highlight td code,
+.chroma td code {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0;
+  white-space: pre;
+  display: block;
+  overflow-x: auto;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+/* Ensure both line numbers and code have matching line heights */
+.highlight td:first-child pre,
+.highlight td:last-child pre,
+.chroma td:first-child pre,
+.chroma td:last-child pre {
+  line-height: 1.5 !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Line numbers styling - make them visible and aligned */
+.highlight .lnt,
+.highlight .ln,
+.chroma .lnt,
+.chroma .ln {
+  color: var(--color-code-line-number) !important;
+  opacity: .75 !important;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  line-height: 1.5 !important;
+  display: block;
+  text-align: right;
+  padding-right: 0.5rem;
+  visibility: visible !important;
+  height: 1.5em; /* Match the line height */
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Ensure line numbers container is visible */
+.highlight td:first-child pre,
+.chroma td:first-child pre {
+  color: var(--color-code-line-number);
+  opacity: .75;
+}
+
+/* Force visibility for line number spans in first column */
+.highlight td:first-child .lnt,
+.highlight td:first-child .ln,
+.chroma td:first-child .lnt,
+.chroma td:first-child .ln {
+  visibility: visible !important;
+  opacity: .75 !important;
+  display: block !important;
+  color: var(--color-code-line-number) !important;
+  background: none !important;
+}
+
+/* NUCLEAR option - force all line number spans to be visible */
+span.lnt,
+span.ln {
+  visibility: visible !important;
+  opacity: .75 !important;
+  display: block !important;
+  color: var(--color-code-line-number) !important;
+}
+
+/* ULTIMATE FALLBACK - target lnt class at root level with maximum specificity */
+html body main article section div.highlight div.chroma table.lntable tbody tr td pre span.lnt,
+html body span.lnt,
+.lnt {
+  display: block !important;
+  visibility: visible !important;
+  opacity: .75 !important;
+  color: #8b8b8b !important; /* Use direct color instead of variable */
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  text-align: right !important;
+  padding-right: 0.5rem !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important; /* Let it be natural height */
+  background: none !important;
+  border: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'Ubuntu Mono', monospace !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  /* Match the exact typography of code elements */
+  font-weight: normal !important;
+  font-style: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Ensure code lines also have consistent height and remove any extra spacing */
+.highlight .line,
+.chroma .line,
+.highlight .cl,
+.chroma .cl {
+  line-height: 1.5 !important;
+  height: auto !important; /* Let it be natural height */
+  display: block !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 0.875rem !important; /* Match line number font size */
+}
+
+/* Override Prism.js hiding of line numbers - target the .mc-prism.hide class */
+.mc-prism.hide span.lnt,
+.mc-prism.hide span.ln,
+pre.mc-prism.hide.chroma span.lnt,
+pre.mc-prism.hide.chroma span.ln {
+  visibility: visible !important;
+  opacity: .75 !important;
+  display: block !important;
+  color: var(--color-code-line-number) !important;
+  background: none !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  text-align: right !important;
+  padding-right: 0.5rem !important;
+}
+
+/* Force the entire line number container to be visible even when marked as hide */
+.mc-prism.hide.chroma {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ultra specific targeting for the line number table cell structure */
+.highlight .lntable tbody tr td:first-child pre.mc-prism.hide.chroma span.lnt,
+.highlight .lntable tbody tr td:first-child pre.mc-prism.chroma span.lnt,
+.chroma .lntable tbody tr td:first-child pre.mc-prism span.lnt {
+  display: inline !important;
+  visibility: visible !important;
+  opacity: .75 !important;
+  color: var(--color-code-line-number) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  text-align: right !important;
+  padding-right: 0.5rem !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Override any hiding of line number container */
+.highlight td:first-child pre,
+.chroma td:first-child pre {
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: static !important;
+}
+
+/* Code toolbar (copy button container) - minimize extra space */
+.code-toolbar {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.code-toolbar pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0;
+}
+
+.code-toolbar .toolbar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+  margin: 0;
+}
+
+.code-toolbar .toolbar-item {
+  margin: 0;
+  padding: 0;
+}
+
+.code-toolbar .toolbar-item button {
+  background: var(--color-background-hover);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text);
+  cursor: pointer;
+  margin: 0;
+}
+
+.code-toolbar .toolbar-item button:hover {
+  background: var(--color-background-active);
+}
+
+/* Remove extra line-numbers-rows spacing */
+.line-numbers-rows {
+  display: none; /* This is creating duplicate/extra space */
+}
+
+/* Fix for Prism.js interference - don't hide line numbers */
+pre.mc-prism.hide {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+}
+
+/* BUT show line numbers in the first column - FORCE VISIBILITY */
+.highlight td:first-child pre.mc-prism.hide,
+.chroma td:first-child pre.mc-prism.hide {
+  opacity: 1 !important;
+  position: static !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Force show the actual line number spans */
+.highlight td:first-child pre.mc-prism.hide .lnt,
+.highlight td:first-child pre.mc-prism.hide .ln,
+.chroma td:first-child pre.mc-prism.hide .lnt,
+.chroma td:first-child pre.mc-prism.hide .ln {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  color: var(--color-code-line-number) !important;
+}
+
+pre.mc-prism:not(.hide) {
+  opacity: 1;
+}
+
+/* Ensure table layout doesn't have extra spacing */
+.highlight table,
+.chroma table {
+  table-layout: fixed;
+}
+
+.highlight td:first-child {
+  width: var(--code-gutter-width);
+  max-width: var(--code-gutter-width);
+}
+
+.highlight td:last-child {
+  width: calc(100% - var(--code-gutter-width));
+}
+
+/* Ensure gutter variables are available for all themes */
+:root {
+  --code-gutter-width: 3.25rem;
+}
+
+/* Copy button hover alignment */
+article .copy-code-button:hover { 
+  background-color: var(--color-background-hover); 
+}

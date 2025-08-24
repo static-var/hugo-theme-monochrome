@@ -16,7 +16,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--color-background);
+  background-color: var(--color-background-header);
   transition: transform 0.2s ease;
 
   &.hide {
@@ -223,7 +223,7 @@ header {
     left: 0;
     height: 100%;
     z-index: 20;
-    background-color: var(--color-background);
+  background-color: var(--color-background-header);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s;
     transform: translateX(-100%);

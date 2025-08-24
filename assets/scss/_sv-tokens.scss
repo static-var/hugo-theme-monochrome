@@ -1,0 +1,129 @@
+/* --------------------------------------------------------------------------
+	 CSS Variable Layer (LAST import) – maps SASS tokens -> theme CSS vars
+	 Central place to tune cross-theme values.
+	 -------------------------------------------------------------------------- */
+
+html[data-theme="light"] {
+	/* Text */
+	--color-text:                #{$gray-900};
+	--color-text-secondary:      #{$gray-500};
+	--color-text-footer:         #{$gray-500};
+	--color-text-mark:           #{$gray-900};
+	--color-text-active:         #{$gray-0};
+	--color-text-disabled:       #{$gray-400};
+
+	/* Borders & outlines */
+	--color-border:              #d4d9e5; /* cooler than flat gray */
+	--color-border-collapsible-menu: #e2e6ef;
+
+	/* Light theme exact HEX from YAML (comments show original HSL) */
+	--sv-bg:                     #f5f7fb; /* 220 43 97 */
+	--sv-primary:                #5b6cff; /* 234 100 68 */
+	--sv-positive:               #16a34a; /* 142 76 36 */
+	--sv-negative:               #ef4444; /* 0 84 60 */
+
+	/* Surfaces */
+	--color-background:          var(--sv-bg);
+	--color-background-card:     #ffffff;
+	--color-background-hover:    #{$sv-light-hover};
+	--color-background-overlay:  #{$sv-light-overlay};
+	--color-background-inline-code: #{$sv-light-inline};
+	--color-background-active:   #{$sv-light-active};
+	--color-background-mark:     #ffd70e;
+	--color-background-code-block: #ffffff; /* light code block (could tint slightly) */
+	--color-code-gutter-bg:        #f8f9fa;           /* slightly darker than code block */
+	--color-code-gutter-border:    #e9ecef;           /* subtle separator */
+	--color-code-line-number:      var(--color-text-secondary);
+	--color-code-line-number-hover-bg: rgba(0,0,0,0.05);
+	--color-code-line-number-active-bg: rgba(0,0,0,0.07);
+	--color-code-active-line-bg:   rgba(0,0,0,0.03);
+	--code-gutter-width:           3.25rem;            /* adjustable gutter width */
+	--color-code-number:           #6366f1;           /* indigo for numerics */
+	--color-code-keyword:          var(--sv-primary);
+
+	/* Links / brand */
+	--color-link:                var(--sv-primary);
+
+	/* Header menu */
+	--color-header-menu-item-inactive: #{$gray-500};
+	--color-header-menu-item-active:   #{$gray-1000};
+	--color-header-menu-item-in-section:#{$gray-600};
+}
+
+html[data-theme="dark"] {
+	/* Text */
+	--color-text:                #ededed; /* computed lighten approximation */
+	--color-text-secondary:      #{$gray-450};
+	--color-text-footer:         #{$gray-400};
+	--color-text-mark:           #{$gray-900};
+	--color-text-active:         #{$gray-1000};
+	--color-text-disabled:       #{$gray-500};
+
+	/* Borders */
+	--color-border:              #3f3f46; /* slightly softer than #525252 */
+	--color-border-collapsible-menu: #52525b; /* subtle diff */
+
+	/* Dark theme exact HEX from YAML */
+	--sv-bg:                     #0f1115; /* 220 17 7 */
+	--sv-primary:                #9b87f5; /* 251 85 75 */
+	--sv-positive:               #4ade80; /* 142 69 58 */
+	--sv-negative:               #f87171; /* 0 91 71 */
+
+	/* Surfaces (page is darkest; cards step lighter) */
+	--color-background:          var(--sv-bg);
+	--color-background-card:     #12151c;            /* first elevation (lighter than bg) */
+	--color-background-card-elev:#161f2a;            /* second elevation */
+	--color-background-hover:    #131822;            /* interactive hover */
+	--color-background-overlay:  #161d26;            /* overlay surfaces */
+	--color-background-inline-code: #131822;         /* inline code chip */
+	--color-background-active:   #202a36;            /* active / pressed */
+	--color-background-mark:     #ffd70e;
+	--color-background-code-block: #12151c;          /* align with card but can differentiate later */
+	--color-code-gutter-bg:        #161f2a;           /* slightly lighter than card */
+	--color-code-gutter-border:    #1e2732;           /* subtle separator */
+	--color-code-line-number:      var(--color-text-secondary);
+	--color-code-line-number-hover-bg: rgba(255,255,255,0.05);
+	--color-code-line-number-active-bg: rgba(255,255,255,0.07);
+	--color-code-active-line-bg:   rgba(255,255,255,0.05);
+	--code-gutter-width:           3.25rem;            /* adjustable gutter width */
+	--color-code-number:           #b3a5ff;           /* lighter accent for numerics */
+	--color-code-keyword:          var(--sv-primary);
+
+	/* Brand */
+	--color-link:                var(--sv-primary);
+
+	/* Header */
+	--color-header-menu-item-inactive: #{$gray-400};
+	--color-header-menu-item-active:   #{$gray-100};
+	--color-header-menu-item-in-section:#{$gray-300};
+
+		/* Timeline / structural accents */
+		--color-border-timeline:     #1e2530;
+		--color-timeline-dot:        #2c3440;
+		--color-shadow-card:         0 2px 4px -2px rgba(0,0,0,.5), 0 4px 12px -2px rgba(0,0,0,.35);
+}
+
+/* Utility states for anchors (kept as vars in case components want them) */
+html[data-theme="light"] {
+	--color-link-hover:  #{$sv-accent-light-600};
+	--color-link-active: #{$sv-accent-light-700};
+}
+html[data-theme="dark"] {
+	--color-link-hover:  #{$sv-accent-dark-600};
+	--color-link-active: #{$sv-accent-dark-700};
+}
+
+/* Focus ring token shared */
+html {
+	--focus-ring: 0 0 0 2px rgba(155,135,245,.35);
+}
+
+/* OLED preset variant (deeper base) */
+html[data-theme="dark"][data-variant="oled"] {
+	--sv-bg: #0a0b0f; /* 228 20 5 */
+	--color-background: var(--sv-bg);
+}
+
+/* Header background aligns to card */
+html[data-theme] { --color-background-header: var(--color-background-card); }
+

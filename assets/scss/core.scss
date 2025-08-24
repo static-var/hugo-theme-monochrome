@@ -5,7 +5,8 @@
 @import 'mixins/padding';
 @import 'mixins/items';
 
-@import 'color';
+@import 'sv-tokens-base'; // SASS tokens (must precede any usage)
+@import 'color';         // component-level overrides that use tokens
 @import 'vars';
 
 @import 'base';
@@ -30,9 +31,12 @@
 @import 'components/search-menu';
 @import 'components/pagination';
 @import 'components/social';
+@import 'components/code';
 // importing core styling file
 @import "fontawesome/fontawesome.scss";
 
 // our project needs Classic Solid, Brands, and Sharp Solid
 @import "fontawesome/solid.scss";
 @import "fontawesome/brands.scss";
+
+@import "_sv-tokens";   // map tokens -> CSS custom properties (LAST)

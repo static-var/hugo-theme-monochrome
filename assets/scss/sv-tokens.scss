@@ -1,0 +1,58 @@
+/* --------------------------------------------------------------------------
+   StaticVar Design Tokens (SASS only – no emitted CSS)
+   Import FIRST so other partials can use these variables.
+   -------------------------------------------------------------------------- */
+
+/* Gray scale (kept verbose because legacy theme references individual stops) */
+$gray-0: #ffffff;
+$gray-50: #f7f7f7;
+$gray-100: #f5f5f5;
+$gray-150: #ededed;
+$gray-200: #e5e5e5;
+$gray-250: #dddddd;
+$gray-300: #d4d4d4;
+$gray-350: #bcbcbc;
+$gray-400: #a3a3a3;
+$gray-450: #8b8b8b;
+$gray-500: #737373;
+$gray-550: #636363;
+$gray-600: #525252;
+$gray-650: #494949;
+$gray-700: #404040;
+$gray-750: #333333;
+$gray-800: #262626;
+$gray-850: #1f1f1f;
+$gray-900: #171717;
+$gray-1000: #000000;
+
+/* Core surfaces */
+$sv-dark-bg:   #0f1115; // page background (dark)
+$sv-dark-card: #0a0b0f; // elevated card / panel
+$sv-light-bg:  #f5f7fb; // soft tinted light background
+
+/* Accent (brand) */
+$sv-accent-dark:  #9b87f5; // dark theme primary
+$sv-accent-light: #5b6cff; // light theme primary
+
+/* Accent variants (hover / active) */
+$sv-accent-dark-600:  lighten($sv-accent-dark, 6%);
+$sv-accent-dark-700:  darken($sv-accent-dark, 6%);
+$sv-accent-light-600: lighten($sv-accent-light, 6%);
+$sv-accent-light-700: darken($sv-accent-light, 6%);
+
+/* Semantic (success / error) */
+$sv-positive-dark:  #4ade80;
+$sv-negative-dark:  #f87171;
+$sv-positive-light: #16a34a;
+$sv-negative-light: #ef4444;
+
+/* Derived utility tones */
+$sv-dark-hover:    lighten($sv-dark-bg, 4%);
+$sv-dark-overlay:  lighten($sv-dark-bg, 7%);
+$sv-dark-inline:   lighten($sv-dark-bg, 6%);
+$sv-dark-active:   lighten($sv-dark-bg, 78%);
+
+$sv-light-hover:   darken($sv-light-bg, 4%);
+$sv-light-overlay: darken($sv-light-bg, 7%);
+$sv-light-inline:  $sv-light-hover;
+$sv-light-active:  $gray-600;

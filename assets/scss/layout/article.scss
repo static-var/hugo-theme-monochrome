@@ -71,13 +71,12 @@ article {
 
   pre {
     @include my-4;
-    padding: 1rem;
+    /* Basic fallback styling - detailed styling handled in components/code.scss */
     overflow-x: auto;
-    border-radius: .5rem;
-    background-color: #272822; // from monokai
-    color: $gray-50;
+    background-color: transparent;
+    color: inherit;
 
-    code { /* Disable inline code style */
+    code { /* Disable inline code style for code blocks */
       display: inherit;
       border-radius: 0;
       padding: 0;
@@ -105,35 +104,19 @@ article {
   .highlight {
     @include my-4;
     position: relative;
+    /* Container styling moved to components/code.scss */
 
     .code-toolbar {
       padding: 0;
-
-      pre {
-        padding: 1rem;
-        border-radius: 0.375rem;
-      }
     }
 
     > div,
     > pre {
-      padding: 0.75rem;
-      border-radius: 0.375rem;
-      overflow-x: auto;
-
-      pre {
-        padding: 0;
-        margin: 0;
-        border-radius: 0;
-
-        code { /* Disable inline code style */
-          border-radius: 0;
-          padding: 0;
-          background-color: transparent;
-          white-space: unset;
-          word-wrap: unset;
-        }
-      }
+      /* No additional padding/styling - handled by unified code.scss */
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
     }
   }
 

@@ -7,6 +7,9 @@
 {{- end -}}
 <script defer src="{{ $theme_switch_js.RelPermalink }}" integrity="{{- $theme_switch_js.Data.Integrity -}}"></script>
 
+{{/*  Logo Theme Switch  */}}
+<script defer src="/js/logo-theme-switch.js"></script>
+
 {{/*  Hide navbar on scroll  */}}
 {{ if (.Scratch.Get "params").hide_navbar_on_scroll }}
     {{ $hide_navbar_on_scroll_js := resources.Get "js/hide-navbar-on-scroll.js" }}

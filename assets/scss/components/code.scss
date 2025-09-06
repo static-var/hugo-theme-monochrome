@@ -9,7 +9,7 @@ article pre {
   border-radius: .625rem;
   margin: 1.5rem 0;
   position: relative;
-  overflow: visible; /* Changed to visible for copy button */
+  overflow: hidden; /* Keep hidden for proper scrolling */
   box-shadow: 0 2px 8px rgba(124, 58, 237, 0.05);
 }
 
@@ -80,6 +80,7 @@ code[class*="language-"], pre[class*="language-"] { text-shadow: none; }
   border-spacing: 0;
   margin: 0;
   background: transparent;
+  table-layout: fixed; /* Ensure consistent layout */
 }
 
 .highlight td,
@@ -145,6 +146,7 @@ code[class*="language-"] {
   width: 100%;
   vertical-align: top;
   position: relative;
+  overflow-x: auto; /* Enable horizontal scroll for long lines */
 }
 
 /* Fix pre elements inside table cells */
@@ -168,7 +170,7 @@ code[class*="language-"] {
   border-radius: 0;
   white-space: pre;
   display: block;
-  overflow-x: auto;
+  overflow-x: visible; /* Let parent handle scrolling */
   min-width: 0;
   line-height: 1.5;
 }
@@ -400,11 +402,7 @@ pre.mc-prism:not(.hide) {
   opacity: 1;
 }
 
-/* Ensure table layout doesn't have extra spacing */
-.highlight table,
-.chroma table {
-  table-layout: fixed;
-}
+/* Table layout is already set above */
 
 .highlight td:first-child {
   width: var(--code-gutter-width);

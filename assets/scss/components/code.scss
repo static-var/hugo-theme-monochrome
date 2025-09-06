@@ -137,7 +137,7 @@ code[class*="language-"] {
   vertical-align: baseline !important; /* Use baseline instead of top */
 }
 
-/* Code content column - second td */
+/* Code content column - second td - Updated for production fix */
 .highlight td:last-child,
 .chroma td:last-child {
   border-top-right-radius: .625rem;
@@ -146,7 +146,7 @@ code[class*="language-"] {
   width: 100%;
   vertical-align: top;
   position: relative;
-  overflow-x: auto; /* Enable horizontal scroll for long lines */
+  overflow-x: auto !important; /* Enable horizontal scroll for long lines - IMPORTANT for production */
 }
 
 /* Fix pre elements inside table cells */

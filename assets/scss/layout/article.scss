@@ -123,19 +123,30 @@ article {
   .copy-code-button {
     @include text-xs;
     position: absolute;
-    right: 0;
-    height: 1.5rem;
-    top: -1.5rem;
-    padding-left: 0.375rem;
-    padding-right: 0.375rem;
+    right: 0.5rem;
+    height: 1.75rem;
+    top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     border-radius: .25rem;
     cursor: pointer;
-    background-color: transparent;
+    background-color: var(--color-background-hover);
+    border: 1px solid var(--color-code-gutter-border);
     display: flex;
     align-items: center;
+    color: var(--color-text);
+    font-family: 'JetBrains Mono', monospace;
+    z-index: 10;
+    transition: opacity 0.2s ease;
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     &:hover {
-      background-color: var(--color-background-hover);
+      background-color: var(--color-background-active);
+      border-color: var(--color-link);
     }
   }
 

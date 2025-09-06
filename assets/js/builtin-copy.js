@@ -33,46 +33,51 @@ function registerClipboard(button, code_block) {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
+    // Handle Hugo Chroma code blocks with table structure
+    document.querySelectorAll('.highlight').forEach((highlight) => {
+        // Find the code element in the second table cell (first is line numbers)
+        var code_block = highlight.querySelector('td:last-child pre > code');
+        if (!code_block) {
+            // Fallback for non-table structure
+            code_block = highlight.querySelector('pre > code');
+        }
+        
+        if (code_block) {
+            var button = document.createElement('span');
+            button.className = 'copy-code-button hidden';
+            button.type = 'button';
+            button.innerText = 'Copy';
+            
+            highlight.appendChild(button);
+            registerHoverEvent(highlight, button);
+            
+            var pre = code_block.parentNode;
+            registerTouchedEvent(pre, button);
+            registerClipboard(button, code_block);
+        }
+    });
+    
+    // Also handle standalone pre > code blocks (not in highlight divs)
     document.querySelectorAll('pre:not(.emgithub-pre) > code').forEach((code_block) => {
+        var pre = code_block.parentNode;
+        
+        // Skip if already inside a highlight block (handled above)
+        if (pre.closest('.highlight')) {
+            return;
+        }
+        
         var button = document.createElement('span');
         button.className = 'copy-code-button hidden';
         button.type = 'button';
         button.innerText = 'Copy';
-
-        var pre = code_block.parentNode;
-        if (pre.parentNode.classList.contains('highlight')) {
-            var highlight = pre.parentNode;
-            highlight.appendChild(button);
-            registerHoverEvent(highlight, button);
-            registerTouchedEvent(pre, button);
-            registerClipboard(button, code_block);
-        } else if (pre.parentNode.tagName === "TD") {
-            // check is line no
-            var td = pre.parentNode;
-            var tr = td.parentNode;
-            if (td === tr.firstChild) {
-                return;
-            }
-            // get highlight block
-            var highlight = pre.parentNode;
-            while (!highlight.classList.contains('highlight') && highlight.tagName !== 'BODY') {
-                highlight = highlight.parentNode;
-            }
-            if (highlight.tagName !== 'BODY') {
-                highlight.appendChild(button);
-                registerHoverEvent(highlight, button);
-                registerTouchedEvent(pre, button);
-                registerClipboard(button, code_block);
-            }
-        } else {
-            var wrapper = document.createElement('div');
-            wrapper.style = "position: relative;"
-            pre.parentNode.insertBefore(wrapper, pre);
-            wrapper.appendChild(pre);
-            wrapper.appendChild(button);
-            registerHoverEvent(wrapper, button);
-            registerTouchedEvent(pre, button);
-            registerClipboard(button, code_block);
-        }
+        
+        var wrapper = document.createElement('div');
+        wrapper.style = "position: relative;"
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        wrapper.appendChild(button);
+        registerHoverEvent(wrapper, button);
+        registerTouchedEvent(pre, button);
+        registerClipboard(button, code_block);
     });
 });

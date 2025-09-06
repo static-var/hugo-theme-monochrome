@@ -27,12 +27,12 @@ html[data-theme="light"] {
 	--color-background-card:     #ffffff;
 	--color-background-hover:    #{$sv-light-hover};
 	--color-background-overlay:  #{$sv-light-overlay};
-	--color-background-inline-code: #{$sv-light-inline};
+	--color-background-inline-code: #ede9fe;       /* inline code chip - light purple tint */
 	--color-background-active:   #{$sv-light-active};
 	--color-background-mark:     #ffd70e;
-	--color-background-code-block: #ffffff; /* light code block (could tint slightly) */
-	--color-code-gutter-bg:        #f8f9fa;           /* slightly darker than code block */
-	--color-code-gutter-border:    #e9ecef;           /* subtle separator */
+	--color-background-code-block: #faf5ff; /* light code block - subtle purple tint */
+	--color-code-gutter-bg:        #f3e8ff;           /* gutter - slightly darker purple */
+	--color-code-gutter-border:    #e9d5ff;           /* subtle purple separator */
 	--color-code-line-number:      var(--color-text-secondary);
 	--color-code-line-number-hover-bg: rgba(0,0,0,0.05);
 	--color-code-line-number-active-bg: rgba(0,0,0,0.07);
@@ -75,12 +75,12 @@ html[data-theme="dark"] {
 	--color-background-card-elev:#161f2a;            /* second elevation */
 	--color-background-hover:    #131822;            /* interactive hover */
 	--color-background-overlay:  #161d26;            /* overlay surfaces */
-	--color-background-inline-code: #131822;         /* inline code chip */
+	--color-background-inline-code: #1e1b4b;         /* inline code chip - purple tinted */
 	--color-background-active:   #202a36;            /* active / pressed */
 	--color-background-mark:     #ffd70e;
-	--color-background-code-block: #12151c;          /* align with card but can differentiate later */
-	--color-code-gutter-bg:        #161f2a;           /* slightly lighter than card */
-	--color-code-gutter-border:    #1e2732;           /* subtle separator */
+	--color-background-code-block: #1a1833;          /* code block - dark purple tint */
+	--color-code-gutter-bg:        #1e1b4b;           /* gutter - darker purple */
+	--color-code-gutter-border:    #2e2968;           /* purple separator */
 	--color-code-line-number:      var(--color-text-secondary);
 	--color-code-line-number-hover-bg: rgba(255,255,255,0.05);
 	--color-code-line-number-active-bg: rgba(255,255,255,0.07);
